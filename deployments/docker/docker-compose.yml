@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:18.3
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ardist
+      POSTGRES_PASSWORD: Ardist_*diya
+      POSTGRES_DB: herschel
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      
+  redis:
+    image: redis:8.6.2
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.28
+    ports:
+      - "2379:2379"
+    volumes:
+      - etcd_data:/etcd-data
+    command:
+      - /usr/local/bin/etcd
+      - --data-dir=/etcd-data
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://etcd:2379
+volumes:
+  postgres_data:
+  redis_data:
+  etcd_data:

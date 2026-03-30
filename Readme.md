@@ -243,7 +243,7 @@ distributed-job-scheduler/
 
 ```bash
 # Clone the repository
-git clone https://github.com/ardista-sk/distributed-job-scheduler.git
+git clone https://github.com/ardeez/distributed-job-scheduler.git
 cd distributed-job-scheduler
 
 # Start infrastructure (PostgreSQL, Redis, etcd)
