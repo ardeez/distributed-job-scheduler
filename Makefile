@@ -11,4 +11,5 @@ proto-gen:
 		--go-grpc_out=./internal/transport/pb \
 		--go-grpc_opt=paths=source_relative \
 		proto/*.proto
-		
+test:
+	go test -v -race ./...
